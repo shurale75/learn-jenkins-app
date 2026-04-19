@@ -15,21 +15,5 @@ pipeline {
                     '''
             }
         }
-        stage('without Docker') {
-            steps {
-                sh 'echo "Without DOCKER"'
-            }
-        }
-        stage('with Docker') {
-            agent {
-                docker {
-                    image 'node:18-alpine' 
-                    reuseNode: true
-                }
-            }
-            steps {
-                sh 'echo "With DOCKER"'
-            }
-        }
     }
 }
